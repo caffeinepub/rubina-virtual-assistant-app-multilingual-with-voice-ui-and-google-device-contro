@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Motoko backend actor with a runPreflightChecks function that always traps due to unsupported preflight behavior.",
+  "feature_evidence.json": "Metadata describing feature evidence, affected files, components, test IDs, and confidence for deployment diagnostics and preflight validation features.",
+  "frontend-file-summaries.txt": "JSON-style list of frontend file paths paired with short human-written summaries for reference.",
+  "frontend/index.css": "Empty CSS file placeholder.",
+  "frontend/index.html": "Basic HTML entry point mounting the frontend app and loading main.tsx.",
+  "frontend/scripts/ic-preflight.mjs": "Node-based IC project preflight script verifying required files, dfx.json validity, and frontend/backend structure.",
+  "frontend/src/App.tsx": "Main React UI showing login flow, identity status, assistant intro, and initialization logs.",
+  "frontend/src/deploy/DeploymentDiagnosticsBoundary.tsx": "React error boundary that logs detailed initialization/render errors and shows a fallback UI.",
+  "frontend/src/deploy/runRuntimePreflight.ts": "Helper that validates backend actor connectivity and handles expected Motoko trap from runPreflightChecks.",
+  "frontend/src/hooks/useActor.ts": "Hook that creates and caches the backend actor based on identity and refreshes dependent queries on changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and provider for Internet Identity login, state management, and identity persistence.",
+  "frontend/src/hooks/useQueries.ts": "Hook running runtime preflight checks using the backend actor for deployment diagnostics.",
+  "frontend/src/index.css": "Sets up Tailwind layers and defines extensive OKLCH-based color variables for light and dark themes, applying global border, background, and text styles.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with React Query and an Internet Identity provider before rendering App.",
+  "frontend/tailwind.config.js": "Configures Tailwind with dark mode, custom OKLCH color tokens, extended animations, and plugins for typography, container queries, and animation.",
+  "project_state.json": "Describes the project’s build state, known issues, and the list of implemented features for the Rubina assistant app."
+}

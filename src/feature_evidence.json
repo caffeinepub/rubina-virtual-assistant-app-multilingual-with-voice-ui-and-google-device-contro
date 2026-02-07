@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-identify-the-root-cause-of-the-previous-internet-computer-deployment-failure-unable-to-complete-deployment-by-capturing-the-full-build-deploy-logs-and-making-the-minimal-code-config-changes-needed-so-a-clean-deploy-succeeds",
+      "featureTitle": "Identify the root cause of the previous Internet Computer deployment failure (\"Unable to complete deployment\") by capturing the full build/deploy logs and making the minimal code/config changes needed so a clean deploy succeeds.",
+      "files": [
+        "frontend/src/deploy/DeploymentDiagnosticsBoundary.tsx",
+        "frontend/src/deploy/runRuntimePreflight.ts",
+        "frontend/src/main.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-lightweight-preflight-validation-step-to-the-project-build-that-checks-for-required-internet-computer-project-files-configuration-and-fails-with-clear-english-messages-when-prerequisites-are-missing-or-inconsistent",
+      "featureTitle": "Add a lightweight preflight validation step to the project build that checks for required Internet Computer project files/configuration and fails with clear English messages when prerequisites are missing or inconsistent.",
+      "files": [
+        "frontend/scripts/ic-preflight.mjs"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

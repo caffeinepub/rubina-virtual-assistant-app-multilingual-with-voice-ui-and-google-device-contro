@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a virtual assistant app named \"Rubina\" with multi-language support (Hindi, English, Bangla, Assamese), device control capabilities, and Google connectivity/integration.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Deployment to network failed (\"Unable to complete deployment\"); user requested retry."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-assistant-ui-for-an-app-named-rubina-with-a-chat-style-interface-message-history-user-input-box-send-button-clear-chat-and-a-simple-rubina-header-branding",
+      "title": "Create the core assistant UI for an app named \"Rubina\" with a chat-style interface (message history, user input box, send button, clear chat) and a simple \"Rubina\" header/branding.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-multilingual-ui-support-for-english-hindi-bangla-and-assamese-including-a-language-selector-that-immediately-updates-all-user-facing-ui-strings",
+      "title": "Add multilingual UI support for English, Hindi, Bangla, and Assamese, including a language selector that immediately updates all user-facing UI strings.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-voice-features-for-rubina-voice-input-speech-to-text-to-fill-the-chat-input-and-text-to-speech-playback-for-rubina-responses-with-controls-to-enable-disable-each",
+      "title": "Implement voice features for Rubina: voice input (speech-to-text) to fill the chat input and text-to-speech playback for Rubina responses, with controls to enable/disable each.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-a-basic-assistant-behavior-in-the-app-no-external-llm-integration-when-the-user-sends-a-message-rubina-returns-a-deterministic-local-response-and-can-recognize-a-small-set-of-built-in-commands-e-g-open-google-open-youtube-clear-chat-switch-language-to",
+      "title": "Define a basic assistant behavior in the app (no external LLM integration): when the user sends a message, Rubina returns a deterministic, local response and can recognize a small set of built-in commands (e.g., \"open google\", \"open youtube\", \"clear chat\", \"switch language to …\").",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-device-control-section-that-exposes-only-browser-allowed-controls-e-g-fullscreen-toggle-copy-to-clipboard-for-a-message-opening-approved-links-and-clearly-labels-any-unsupported-device-controls-as-not-available-in-browser",
+      "title": "Add a \"Device Control\" section that exposes only browser-allowed controls (e.g., fullscreen toggle, copy-to-clipboard for a message, opening approved links) and clearly labels any unsupported device controls as \"Not available in browser\".",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-google-section-that-provides-safe-no-auth-connectivity-options-open-google-search-with-the-user-query-and-quick-links-to-common-google-properties-e-g-search-gmail-maps-without-claiming-account-level-integration",
+      "title": "Add a \"Google\" section that provides safe, no-auth connectivity options: open Google Search with the user query and quick links to common Google properties (e.g., Search, Gmail, Maps) without claiming account-level integration.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-persist-user-preferences-selected-language-voice-toggles-and-optionally-chat-history-in-the-motoko-canister-so-settings-can-be-restored-per-authenticated-user",
+      "title": "Persist user preferences (selected language, voice toggles) and optionally chat history in the Motoko canister so settings can be restored per authenticated user.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-settings-page-panel-including-language-selection-voice-input-toggle-voice-output-toggle-and-a-short-capabilities-limits-explanation-covering-google-integration-and-device-control-limitations-in-a-web-app",
+      "title": "Add a Settings page/panel including: language selection, voice input toggle, voice output toggle, and a short \"Capabilities & Limits\" explanation covering Google integration and device control limitations in a web app.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-and-apply-a-coherent-distinctive-visual-theme-for-the-rubina-assistant-color-palette-typography-spacing-component-styling-and-apply-it-consistently-across-all-screens",
+      "title": "Choose and apply a coherent, distinctive visual theme for the Rubina assistant (color palette, typography, spacing, component styling) and apply it consistently across all screens.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-rubina-branding-logo-simple-mascot-avatar-and-render-them-in-the-ui-e-g-header-and-assistant-message-avatar-from-frontend-public-assets-generated-do-not-serve-images-via-backend",
+      "title": "Add generated static image assets for Rubina branding (logo + simple mascot/avatar) and render them in the UI (e.g., header and assistant message avatar) from frontend/public/assets/generated (do not serve images via backend).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-identify-the-root-cause-of-the-previous-internet-computer-deployment-failure-unable-to-complete-deployment-by-capturing-the-full-build-deploy-logs-and-making-the-minimal-code-config-changes-needed-so-a-clean-deploy-succeeds",
+      "title": "Identify the root cause of the previous Internet Computer deployment failure (\"Unable to complete deployment\") by capturing the full build/deploy logs and making the minimal code/config changes needed so a clean deploy succeeds.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-lightweight-preflight-validation-step-to-the-project-build-that-checks-for-required-internet-computer-project-files-configuration-and-fails-with-clear-english-messages-when-prerequisites-are-missing-or-inconsistent",
+      "title": "Add a lightweight preflight validation step to the project build that checks for required Internet Computer project files/configuration and fails with clear English messages when prerequisites are missing or inconsistent.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an assistant app named \"Rubina\"",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add multi-language support: Hindi, English, Bangla, Assamese",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Enable the assistant to control the user’s device",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Connect/integrate the assistant with Google services",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Rubina Virtual Assistant App (Multilingual) with Voice UI and Google/Device Control Placeholders",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

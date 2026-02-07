@@ -1,0 +1,61 @@
+{
+  "kind": "build_request",
+  "title": "Retry deployment by fixing repository and build configuration issues",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Identify the root cause of the previous Internet Computer deployment failure (\"Unable to complete deployment\") by capturing the full build/deploy logs and making the minimal code/config changes needed so a clean deploy succeeds.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2"
+        ],
+        "quotes": [
+          "🙏 Unable to complete deployment",
+          "Try again"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A deployment attempt produces a complete, readable error log in the build output (not only a generic failure message).",
+        "After fixes, the project deploys successfully to the network without manual intervention beyond the standard deploy command used by the platform.",
+        "No new product features are added as part of the fix; changes are limited to build/deploy correctness and stability."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add a lightweight preflight validation step to the project build that checks for required Internet Computer project files/configuration and fails with clear English messages when prerequisites are missing or inconsistent.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2"
+        ],
+        "quotes": [
+          "🙏 Unable to complete deployment",
+          "Try again"
+        ]
+      },
+      "acceptanceCriteria": [
+        "If required configuration/artifacts are missing (e.g., canister/build config), the build fails early with a clear English error that states what is missing and how to resolve it.",
+        "If prerequisites are present, the preflight step does not alter behavior and the build proceeds normally.",
+        "User-facing error/output text introduced by this step is in English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Keep all backend logic in a single Motoko actor (backend/main.mo) if backend changes are required.",
+    "Do not edit files under frontend/src/components/ui or other immutable paths defined by the template.",
+    "Use English for any user-facing text produced by build scripts or UI changes related to this request."
+  ],
+  "nonGoals": [
+    "Adding new assistant features (chat commands, new UI panels, new integrations).",
+    "Changing the app’s visual theme or branding assets.",
+    "Introducing external databases, third-party auth providers, or non-Motoko backend services."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

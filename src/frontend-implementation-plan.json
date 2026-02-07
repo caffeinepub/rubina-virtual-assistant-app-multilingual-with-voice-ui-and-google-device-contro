@@ -1,0 +1,54 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix ICP deploy stability via improved frontend build logs and preflight checks",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Improve deploy-time diagnostics by surfacing full errors (with stacks) during frontend build/runtime so failures are actionable and not generic.",
+      "acceptanceCriteria": [
+        "A deployment attempt produces a complete, readable error log in the build output (not only a generic failure message).",
+        "After fixes, the project deploys successfully to the network without manual intervention beyond the standard deploy command used by the platform.",
+        "No new product features are added as part of the fix; changes are limited to build/deploy correctness and stability."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Wrap the app startup with a lightweight diagnostics wrapper that runs an early preflight call and prints full error details (including stack traces) to the console; ensure all new output is English. Use core-infrastructure conventions for backend connectivity where applicable. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/deploy/DeploymentDiagnosticsBoundary.tsx",
+          "operation": "create",
+          "description": "Add a minimal React error boundary that captures initialization/render failures and logs full, readable errors (message + stack + cause chain) to the console; optionally render a simple non-branded fallback text for visibility during deploy verification (English only). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/deploy/runRuntimePreflight.ts",
+          "operation": "create",
+          "description": "Implement a small runtime preflight helper that calls the existing backend capability runPreflightChecks() and, on failure, logs a clear English summary plus the original error payload/stack to aid root-cause identification. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add a frontend build preflight step that validates required ICP project files/config are present and fails early with clear English messages when they are not.",
+      "acceptanceCriteria": [
+        "If required configuration/artifacts are missing (e.g., canister/build config), the build fails early with a clear English error that states what is missing and how to resolve it.",
+        "If prerequisites are present, the preflight step does not alter behavior and the build proceeds normally.",
+        "User-facing error/output text introduced by this step is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/scripts/ic-preflight.mjs",
+          "operation": "create",
+          "description": "Create a Node-based preflight script that validates expected Internet Computer project prerequisites (e.g., presence/consistency of dfx config and frontend build inputs) and exits non-zero with clear English guidance when checks fail; keep it read-only and side-effect free. Align assumptions with github-export-icp-cli and build-template-react templates. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/package.json",
+          "operation": "create",
+          "description": "Add frontend build scripts wiring to run the new preflight script automatically (e.g., as a prebuild step) so CI/deploy fails early with clear logs; do not change app features or theme. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

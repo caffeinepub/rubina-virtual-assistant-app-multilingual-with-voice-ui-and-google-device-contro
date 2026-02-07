@@ -1,0 +1,9 @@
+{
+  "frontend/src/App.tsx": "Main application component displaying the Rubina assistant welcome screen with login functionality, feature cards, and deployment status indicator.",
+  "frontend/src/deploy/DeploymentDiagnosticsBoundary.tsx": "React error boundary component that captures and logs comprehensive error details (message, stack, cause chain) to console for deployment diagnostics, with a fallback UI.",
+  "frontend/src/deploy/runRuntimePreflight.ts": "Runtime preflight validation helper that checks backend actor initialization and logs detailed diagnostic information for deployment troubleshooting.",
+  "frontend/src/main.tsx": "Application entry point that wraps the app with error boundary, providers (QueryClient, InternetIdentity), and logs initialization steps for deployment diagnostics.",
+  "frontend/src/hooks/useQueries.ts": "React Query hook that runs runtime preflight checks on the backend actor for deployment validation and diagnostics.",
+  "frontend/scripts/ic-preflight.mjs": "Node.js preflight validation script that checks for required Internet Computer project files (dfx.json, frontend/backend directories) and exits with clear English error messages when prerequisites are missing.",
+  "frontend/src/index.css": "Global CSS file containing Tailwind directives and OKLCH-based design tokens for light and dark modes with semantic color variables."
+}

@@ -1,2 +1,3 @@
-# rubina-virtual-assistant-app-multilingual-with-voice-ui-and-google-device-contro
-Exported from Caffeine project: Rubina Virtual Assistant App (Multilingual) with Voice UI and Google/Device Control Placeholders
+## Rubina Virtual Assistant App (Multilingual) with Voice UI and Google/Device Control Placeholders
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
